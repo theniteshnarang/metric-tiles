@@ -2,9 +2,9 @@ import { useState } from 'react';
 import useUserStore from '@store/user.store';
 import { CardMode } from '@store/insight.type';
 import calculateMetrics from '@utils/analytics';
-import { ViewChartProps } from '../components/ViewInsight/ViewInsight';
+import { ViewInsightProps } from '../components/ViewInsight/ViewInsight';
 
-interface UseInsightViewProps extends ViewChartProps {}
+interface UseInsightViewProps extends ViewInsightProps {}
 
 const useInsightView = ({ card }: UseInsightViewProps) => {
   const { updateChartCard, addChartCard } = useUserStore((state) => ({

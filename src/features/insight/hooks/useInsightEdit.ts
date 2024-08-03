@@ -4,10 +4,10 @@ import { useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { postSnapshot, SegmentIdType } from '../api';
 import { CardType } from '@store/insight.type';
-import { EditChartProps } from '../components/EditInsight/EditInsight';
+import { EditInsightProps } from '../components/EditInsight/EditInsight';
 import { SelectChangeEvent } from '@mui/material';
 
-interface UseInsightEditProps extends EditChartProps {}
+interface UseInsightEditProps extends EditInsightProps {}
 
 interface DropdownSelection {
   metric: string;
