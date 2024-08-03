@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.paper-rounded {
+  @apply bg-white p-8 w-fit rounded-xl;
+}
