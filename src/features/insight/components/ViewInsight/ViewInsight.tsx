@@ -18,7 +18,7 @@ export const ViewInsight = (props: ViewInsightProps) => {
 
   return (
     <Stack
-      className="min-w-96 grow relative cursor-pointer "
+      className="min-w-96 w-full relative cursor-pointer flex-1"
       onMouseEnter={() => action.setIsAddVisibile(true)}
       onMouseLeave={() => action.setIsAddVisibile(false)}
       onClick={onClick.handleChartClick}

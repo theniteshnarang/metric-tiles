@@ -8,7 +8,7 @@ const Insight = ({}: InsightProps) => {
   const { data } = useInsight();
 
   return (
-    <Stack spacing={6} alignItems="center">
+    <Stack spacing={6}>
       {data.tiles?.map((tile) => <Tile key={tile.tileId} tile={tile} />)}
     </Stack>
   );
