@@ -10,7 +10,7 @@ import { camelToLowerCase, capitalizeAnyString } from '@utils/convertString';
 
 import { formatANumber } from '@utils/math';
 import useInsightView from '@features/insight/hooks/useInsightView';
-import { Breakpoints, getCurrentBreakpoint } from '@utils/getCurrentBreakpoint';
+import { Breakpoints } from '@utils/getCurrentBreakpoint';
 import { useMemo } from 'react';
 import { useWindow } from '@hooks/index';
 
