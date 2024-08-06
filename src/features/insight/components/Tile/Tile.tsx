@@ -12,8 +12,8 @@ export const Tile = ({ tile }: TileProps) => {
       direction="row"
       className="flex-wrap gap-6 paper-rounded min-h-min w-full"
     >
-      {tile?.cards?.map((tileCard) => (
-        <TileCard key={tileCard.cardId} card={tileCard} />
+      {tile?.cards?.map((tileCard, idx) => (
+        <TileCard key={tileCard.cardId} card={tileCard} idx={idx} />
       ))}
     </Stack>
   );

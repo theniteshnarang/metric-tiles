@@ -12,6 +12,7 @@ export default defineConfig({
       '@api': path.resolve(__dirname, 'src/api'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@utils': path.resolve(__dirname, 'src/utils'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
       // Add other aliases as needed
     },
   },

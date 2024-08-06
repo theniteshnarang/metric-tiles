@@ -10,11 +10,31 @@ import { camelToLowerCase, capitalizeAnyString } from '@utils/convertString';
 
 import { formatANumber } from '@utils/math';
 import useInsightView from '@features/insight/hooks/useInsightView';
+import { Breakpoints, getCurrentBreakpoint } from '@utils/getCurrentBreakpoint';
+import { useMemo } from 'react';
+import { useWindow } from '@hooks/index';
 
 export interface ViewInsightProps extends TileCardProps {}
 
+type BreakpointsIdsMapping = {
+  [key in Breakpoints]: number[];
+};
+
+const breakpointsIdsMapping: Partial<BreakpointsIdsMapping> = {
+  md: [0],
+  lg: [0, 1],
+  xl: [0, 1, 2],
+  default: [0],
+};
+
 export const ViewInsight = (props: ViewInsightProps) => {
   const { data, onClick, state, action } = useInsightView(props);
+  const { currentBreakpoint } = useWindow();
+
+  const isDividerHidden = useMemo(
+    () => breakpointsIdsMapping[currentBreakpoint]?.includes(props.idx),
+    [props.idx, currentBreakpoint]
+  );
 
   return (
     <Stack
@@ -23,6 +43,10 @@ export const ViewInsight = (props: ViewInsightProps) => {
       onMouseLeave={() => action.setIsAddVisibile(false)}
       onClick={onClick.handleChartClick}
     >
+      <Divider
+        className={`horizontal -translate-y-3 scale-x-110 ${isDividerHidden && 'hidden'}`}
+      />
+
       <Typography color="CaptionText" className="z-10 absolute">
         {capitalizeAnyString(data.title)} (
         {camelToLowerCase(props.card.segmentKey)})
