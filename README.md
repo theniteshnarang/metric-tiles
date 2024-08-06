@@ -1,5 +1,7 @@
 # Metric Tiles
 
+Link: [Netlify Live](https://metric-tiles-nn.netlify.app/)
+
 ### Folders Description
 
 - **public/**: Contains static assets like images, fonts, and the HTML file.
@@ -23,6 +25,9 @@
   - **layout/**: Layout components like header, footer, etc.
   - **assets/**: Styling files, global styles.
   - **themes/**: App themes.
+  - **components/**: Shared components accross the app.
+  - **hooks/**: Shared hooks accross the app.
+  - **store/**: App store.
   - **App.tsx**: The root component.
   - **main.tsx**: The entry point of the application.
 
@@ -33,5 +38,3 @@
 - **README.md**: The project documentation.
 
 This structure is flexible and can be adjusted to meet the specific needs of your project.
-
-Link: [Netlify Live](https://metric-tiles-nn.netlify.app/)
