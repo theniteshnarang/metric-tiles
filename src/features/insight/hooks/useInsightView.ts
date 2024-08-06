@@ -1,15 +1,21 @@
 import { useState } from 'react';
-import useUserStore from '@store/user.store';
+import useAppStore from '@store/app.store';
 import { CardMode } from '@store/insight.type';
 import calculateMetrics from '@utils/analytics';
 import { ViewInsightProps } from '../components/ViewInsight/ViewInsight';
 
 interface UseInsightViewProps extends ViewInsightProps {}
 
+/**
+ *
+ * @param card
+ * @returns onclick, state, action, data
+ */
+
 const useInsightView = ({ card }: UseInsightViewProps) => {
-  const { updateChartCard, addChartCard } = useUserStore((state) => ({
-    updateChartCard: state.updateChartCard,
-    addChartCard: state.addChartCard,
+  const { updateChartCard, addChartCard } = useAppStore((state) => ({
+    updateChartCard: state.updateInsightChartCard,
+    addChartCard: state.addInsightChartCard,
   }));
   const [isAddVisibile, setIsAddVisibile] = useState(false);
   const title = `${card.metric}, ${card.segmentId}`;

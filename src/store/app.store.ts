@@ -9,14 +9,14 @@ import {
 import { initialInsight, initialCard } from './insight.initialState';
 import createIdGenerator from '@features/insight/util/createIdGenerator';
 
-const useUserStore = create<StoreState>()(
+const useAppStore = create<StoreState>()(
   immer((set) => ({
     insight: initialInsight,
     updateInsight: (updates: PartialInsightProps) =>
       set((state) => {
         Object.assign(state.insight, updates);
       }),
-    updateChartTile: (tile: Partial<TileType>) =>
+    updateInsightChartTile: (tile: Partial<TileType>) =>
       set((state) => {
         const draftTiles = state.insight.chart.tiles;
         const tileIndex = draftTiles.findIndex((t) => t.tileId === tile.tileId);
@@ -24,7 +24,7 @@ const useUserStore = create<StoreState>()(
           Object.assign(draftTiles[tileIndex], tile);
         }
       }),
-    addChartCard: (card: CardType) =>
+    addInsightChartCard: (card: CardType) =>
       set((state) => {
         const draftTiles = state.insight.chart.tiles;
         const tileIndex = draftTiles.findIndex((t) => t.tileId === card.tileId);
@@ -41,7 +41,7 @@ const useUserStore = create<StoreState>()(
           draftTile.cards.splice(cardIndex + 1, 0, newCard);
         }
       }),
-    updateChartCard: (card: Partial<CardType>) =>
+    updateInsightChartCard: (card: Partial<CardType>) =>
       set((state) => {
         const draftTiles = state.insight.chart.tiles;
         const tileIndex = draftTiles.findIndex((t) => t.tileId === card.tileId);
@@ -55,4 +55,4 @@ const useUserStore = create<StoreState>()(
   }))
 );
 
-export default useUserStore;
+export default useAppStore;

@@ -2,7 +2,7 @@ import Insight from '@features/insight/Insight';
 import { ThemeProvider } from '@mui/material';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import appTheme from './themes/appTheme';
-import Layout from './layout/Layout';
+import { Layout } from './layout';
 
 const queryClient = new QueryClient();
 

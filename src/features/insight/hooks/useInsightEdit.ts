@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import useUserStore from '@store/user.store';
+import useAppStore from '@store/app.store';
 import { useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { postSnapshot, SegmentIdType } from '../api';
@@ -37,6 +37,12 @@ const initialSelection: DropdownSelection = {
   segmentIdOptions: [],
 };
 
+/**
+ *
+ * @param card
+ * @returns onclick, state, action, data
+ */
+
 const useInsightEdit = ({ card }: UseInsightEditProps) => {
   const [dropdownSelection, setDropdownSelection] = useState<DropdownSelection>(
     { ...initialSelection, ...card }
@@ -47,9 +53,9 @@ const useInsightEdit = ({ card }: UseInsightEditProps) => {
   const updateError = (error: Partial<ErrorState>) =>
     setError((e) => ({ ...e, ...error }));
 
-  const { insight, updateChartCard } = useUserStore((state) => ({
+  const { insight, updateChartCard } = useAppStore((state) => ({
     insight: state.insight,
-    updateChartCard: state.updateChartCard,
+    updateChartCard: state.updateInsightChartCard,
   }));
 
   const snapshotMutation = useMutation({
@@ -72,7 +78,6 @@ const useInsightEdit = ({ card }: UseInsightEditProps) => {
         if (errorResponse?.message) {
           // Server responded with a status other than 200 range
           updateError({ message: errorResponse.message });
-          // setError(errorResponse.message);
         } else if (error.request) {
           // Request was made but no response received
           updateError({

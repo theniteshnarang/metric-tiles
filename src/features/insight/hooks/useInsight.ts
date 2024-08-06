@@ -1,10 +1,15 @@
-import useUserStore from '@store/user.store';
+import useAppStore from '@store/app.store';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { getSegments, getMetrics } from '../api';
 
+/**
+ *
+ * @returns data
+ */
+
 const useInsight = () => {
-  const { insight, updateInsight } = useUserStore((state) => ({
+  const { insight, updateInsight } = useAppStore((state) => ({
     insight: state.insight,
     updateInsight: state.updateInsight,
   }));

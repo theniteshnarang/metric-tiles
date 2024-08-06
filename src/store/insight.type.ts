@@ -29,9 +29,9 @@ export interface InsightState {
 
 export interface InsightActions {
   updateInsight: (update: PartialInsightProps) => void;
-  updateChartTile: (tile: Partial<TileType>) => void;
-  addChartCard: (card: CardType) => void;
-  updateChartCard: (card: Partial<CardType>) => void;
+  updateInsightChartTile: (tile: Partial<TileType>) => void;
+  addInsightChartCard: (card: CardType) => void;
+  updateInsightChartCard: (card: Partial<CardType>) => void;
 }
 
 export type StoreState = InsightState & InsightActions;

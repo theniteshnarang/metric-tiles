@@ -52,7 +52,7 @@ export const ViewInsight = (props: ViewInsightProps) => {
       </Stack>
       <Divider
         orientation="vertical"
-        className={`absolute right-0 ${state.isAddVisibile ? 'translate-x-6' : '-translate-x-0'}`}
+        className={`absolute right-0 z-10 ${state.isAddVisibile ? 'translate-x-6' : '-translate-x-0'}`}
       >
         {state.isAddVisibile && (
           <IconButton
